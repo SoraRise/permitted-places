@@ -3,7 +3,8 @@ package main
 import (
 	"log"
 
-	"example.com/m/v2/config"
+	"github.com/SoraRise/permitted-places/config"
+	app "github.com/SoraRise/permitted-places/internal"
 )
 
 func main() {
@@ -11,5 +12,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Config error: %s", err)
 	}
+
+	app.Run(cfg)
 
 }
