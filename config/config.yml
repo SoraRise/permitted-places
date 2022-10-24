@@ -7,3 +7,11 @@ http:
 logger:
   log_level: 'debug'
   rollbar_env: 'permitted-places-FX'
+
+
+database:
+  dbhost: '1e21e'
+  dbport: '5432'
+  dbuser: 'Yuta'
+  dbpassword: 'Hikarinroot1'
+  dbname: 'permitted_places'

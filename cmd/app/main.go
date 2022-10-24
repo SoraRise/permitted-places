@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/SoraRise/permitted-places/config"
-	app "github.com/SoraRise/permitted-places/internal"
+	app "github.com/SoraRise/permitted-places/internal/app"
 )
 
 func main() {
