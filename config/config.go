@@ -11,7 +11,7 @@ type (
 		HTTP `yaml:"http"`
 		App  `yaml: "app"`
 		Log  `yaml:"logger"`
-		Db   `yaml: "database"`
+		DatabaseConfig `yaml:"dbconfig"`
 	}
 	App struct {
 		Version string `env-required:"true" yaml:"version" env: "APP_NAME"`
@@ -22,12 +22,11 @@ type (
 	Log struct {
 		Level string `env-required:"true" yaml:"log_level" env: "LOG_LEVEL"`
 	}
-	Db struct {
-		Host     string `env-required:"true" yaml:"dbhost" env: "DBHOST"`
-		DBPort   string `env-required:"true" yaml:"dbport" env: "PORT"`
-		User     string `env-required:"true" yaml:"dbuser" env: "USER"`
-		Password string `env-required:"true" yaml:"dbpassword" env:"PASSWORD"`
-		DBName   string `env-required:"true" yaml:"dbname" env: "DBNAME"`
+	DatabaseConfig struct {
+		Portdb string `env-required:"true" yaml:"portdb" env: "PORT"`
+		User string `env-required:"true" yaml:"user" env: "USER"`
+		Password string `env-required:"true" yaml:"password" env: "PASS"`
+		Adress string `env-required:"true" yaml:"adress" env: "ADDRESS"`
 	}
 )
 
