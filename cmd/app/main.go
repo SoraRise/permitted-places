@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/SoraRise/permitted-places/config"
@@ -12,7 +13,5 @@ func main() {
 	if err != nil {
 		log.Fatalf("Config error: %s", err)
 	}
-
-	app.Run(cfg)
-
+	defer fmt.Println(cfg.HTTP, cfg.Level, cfg.Portdb, cfg.User, cfg.Password, cfg.Adress)
 }
