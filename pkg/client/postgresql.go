@@ -3,8 +3,12 @@ package client
 import (
 	"context"
 	"fmt"
+	"internal/poll"
 
-	"github.com/SoraRise/permitted-places/config"
+	"log"
+	"time"
+
+	"github.com/SoraRise/permitted-places/internal/config"
 	"github.com/jackc/pgconn"
 	"github.com/jackc/pgx"
 )
@@ -16,6 +20,9 @@ type Client interface {
 	Begin(ctx context.Context) (pgx.Tx, error)
 }
 
-func NewClient(ctx context.Context, config config.Config) {
-	dsn := fmt.Sprintf("")
+func NewClient(ctx context.Context, config config.Config) (pool *pgxpool.Pool, err error) {
+	dsn := fmt.Sprintf("postgresql://%s:%s@%s:%s/%s", &config.DatabaseUserName, &config.UserPassword, &config.DatabaseHost, &config.DatabasePort, &config.DatabaseName)
+	err =
+
+	return poll, nil
 }
