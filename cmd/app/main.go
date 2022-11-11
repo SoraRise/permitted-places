@@ -2,16 +2,19 @@ package main
 
 import (
 	"fmt"
-	"log"
 
-	"github.com/SoraRise/permitted-places/config"
-	app "github.com/SoraRise/permitted-places/internal/app"
+	"github.com/SoraRise/permitted-places/internal/config"
+	rise "github.com/SoraRise/permitted-places/pkg/client"
 )
 
 func main() {
-	cfg, err := config.NewConfig()
+	cfg, err := config.NewConfig("windows")
+
 	if err != nil {
-		log.Fatalf("Config error: %s", err)
+		fmt.Printf("%s\n error top", err)
 	}
-	defer fmt.Println(cfg.HTTP, cfg.Level, cfg.Portdb, cfg.User, cfg.Password, cfg.Adress)
+
+	fmt.Println(cfg.DatabaseHost, cfg.DatabaseName, cfg.DatabasePort, cfg.DatabaseUserName, cfg.UserPassword, cfg.MaxAttemptsConnections)
+
+	client := rise.NewClient(ctx, *cfg)
 }

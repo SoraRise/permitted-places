@@ -24,14 +24,17 @@ type (
 )
 
 type Config struct {
-	DatabaseName     string `env-required:"true" yaml:"databaseName" env: "DATABASENAME"`
-	DatabasePort     string `env-required:"true" yaml:"portdb" env: "DATABASEPORT"`
+	DatabaseName string `env-required:"true" yaml:"databaseName" env: "DATABASENAME"`
+
+	DatabasePort string `env-required:"true" yaml:"portdb" env: "DATABASEPORT"`
+
 	DatabaseUserName string `env-required:"true" yaml:"database_user" env: "USERDATABASE"`
-	DatabaseHost     string `env-required:"true" yaml:"database_host" env: "DATABASEHOST"`
-	UserPassword     string `env-required:"true" yaml:"userPassword" env: "USERPASSWORDDB"`
-	IPAdress         string `env-required:"true" yaml:"address" env: "IPADRESSDATABASE"`
-	adressLocalHost  string `env-required:"false" yaml:"addressLocalHost" env: "TESTADRESSLOCALHOST"`
-	DatabasesScheme  string `env-required:"true" yaml:"scheme" env: "DATABASESCHEME"`
+
+	DatabaseHost string `env-required:"true" yaml:"database_host" env: "DATABASEHOST"`
+
+	UserPassword string `env-required:"true" yaml:"userPassword" env: "USERPASSWORDDB"`
+
+	MaxAttemptsConnections int `env-required:"true" yaml:"attempts" env: "MAXATTEMPTS TO CONNECT "`
 }
 
 type confProfile string
@@ -41,7 +44,7 @@ func NewConfig(profile confProfile) (*Config, error) {
 	var err = cleanenv.ReadConfig("", nil)
 	switch profile {
 	case "windows":
-		err = cleanenv.ReadConfig("./config/configwindows.yml", cfg)
+		err = cleanenv.ReadConfig("./internal/config/storgeConfigurationWindows.yml", cfg)
 	case "macos":
 		err = cleanenv.ReadConfig("./config/configmacos.yml", cfg)
 	}
