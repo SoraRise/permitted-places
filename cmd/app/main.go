@@ -4,7 +4,6 @@ import (
 	"fmt"
 
 	"github.com/SoraRise/permitted-places/internal/config"
-	rise "github.com/SoraRise/permitted-places/pkg/client"
 )
 
 func main() {
@@ -16,5 +15,5 @@ func main() {
 
 	fmt.Println(cfg.DatabaseHost, cfg.DatabaseName, cfg.DatabasePort, cfg.DatabaseUserName, cfg.UserPassword, cfg.MaxAttemptsConnections)
 
-	client := rise.NewClient(ctx, *cfg)
+	// client := rise.NewClient(ctx, *cfg)
 }
